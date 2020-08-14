@@ -11,7 +11,7 @@ try {
   let result = mood.analyze(github.context.payload.pull_request.body);
   const message = `MESSAGE GOES HERE! 🎉`;
   octokit.issues.createComment({
-    ...github.context.repo,
+    repo: { ...github.context.repo },
     issue_number: pullRequestNumber,
     body: message,
   });
