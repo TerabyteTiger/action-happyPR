@@ -1,4 +1,4 @@
-name: "Hello World"
+name: "Mood Analyze"
 description: "Greet someone and record the time"
 outputs:
   time: # id of output
