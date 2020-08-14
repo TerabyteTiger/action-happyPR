@@ -10,11 +10,18 @@ try {
   let mood = new Sentiment();
   let result = mood.analyze(github.context.payload.pull_request.body);
   const message = `MESSAGE GOES HERE! 🎉`;
-  octokit.issues.createComment({
-    repo: { ...github.context.repo },
-    issue_number: pullRequestNumber,
-    body: message,
-  });
+  try {
+    console.log(github.context.payload.repository.name);
+    console.log(github.context.payload.repository.owner);
+    octokit.issues.createComment({
+      repo: github.context.payload.repository.name,
+      owner: github.context.payload.repository.owner,
+      issue_number: pullRequestNumber,
+      body: message,
+    });
+  } catch (error) {
+    console.log(error);
+  }
   // Logs for fun 🎉
   console.log(`Analysis: ${result.score}`);
   // Get the JSON webhook payload for the event that triggered the workflow
