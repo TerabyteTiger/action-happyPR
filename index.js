@@ -5,7 +5,7 @@ const Sentiment = require("sentiment");
 try {
   let mood = new Sentiment();
   let result = mood.analyze("test memo! :D");
-  console.log(`Hello ${nameToGreet}!`);
+  console.log(`Hello ${result}!`);
   const time = new Date().toTimeString();
   core.setOutput("time", time);
   // Get the JSON webhook payload for the event that triggered the workflow
