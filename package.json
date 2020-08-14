@@ -19,6 +19,7 @@
   "homepage": "https://github.com/TerabyteTiger/action-happyPR#readme",
   "dependencies": {
     "@actions/core": "^1.2.4",
-    "@actions/github": "^4.0.0"
+    "@actions/github": "^4.0.0",
+    "sentiment": "^5.0.2"
   }
 }

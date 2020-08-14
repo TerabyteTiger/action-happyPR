@@ -138,6 +138,11 @@ once@^1.4.0:
   dependencies:
     wrappy "1"
 
+sentiment@^5.0.2:
+  version "5.0.2"
+  resolved "https://registry.yarnpkg.com/sentiment/-/sentiment-5.0.2.tgz#01e4396d9b5b17b1176f16c9d1a8be87b16cc1d6"
+  integrity sha512-ZeC3y0JsOYTdwujt5uOd7ILJNilbgFzUtg/LEG4wUv43LayFNLZ28ec8+Su+h3saHlJmIwYxBzfDHHZuiMA15g==
+
 tunnel@0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/tunnel/-/tunnel-0.0.6.tgz#72f1314b34a5b192db012324df2cc587ca47f92c"
