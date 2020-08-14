@@ -11,6 +11,8 @@ jobs:
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Hello world action step
+      - name: Mood Analysis Step
         uses: ./ # Uses an action in the root directory
         id: happy
+        with:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
