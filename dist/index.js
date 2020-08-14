@@ -5949,34 +5949,38 @@ const core = __webpack_require__(435);
 const github = __webpack_require__(342);
 const Sentiment = __webpack_require__(936);
 
-try {
-  const githubToken = core.getInput("GITHUB_TOKEN");
-  const pullRequestNumber = github.context.payload.pull_request.number;
-  const octokit = new github.getOctokit(githubToken);
-  // Analyze the mood of the Pull Request's body
-  let mood = new Sentiment();
-  let result = mood.analyze(github.context.payload.pull_request.body);
-  const message = `MESSAGE GOES HERE! 🎉`;
+async function run() {
   try {
-    console.log(github.context.payload.repository.name);
-    console.log(github.context.payload.repository.owner);
-    octokit.issues.createComment({
-      repo: github.context.payload.repository.name,
-      owner: github.context.payload.repository.owner,
-      issue_number: pullRequestNumber,
-      body: message,
-    });
+    const githubToken = core.getInput("GITHUB_TOKEN");
+    const pullRequestNumber = github.context.payload.pull_request.number;
+    const octokit = new github.getOctokit(githubToken);
+    // Analyze the mood of the Pull Request's body
+    let mood = new Sentiment();
+    let result = mood.analyze(github.context.payload.pull_request.body);
+    const message = `MESSAGE GOES HERE! 🎉`;
+    try {
+      console.log(github.context.payload.repository.name);
+      console.log(github.context.payload.repository.owner);
+      octokit.issues.createComment({
+        repo: github.context.payload.repository.name,
+        owner: github.context.payload.repository.owner,
+        issue_number: pullRequestNumber,
+        body: message,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+    // Logs for fun 🎉
+    console.log(`Analysis: ${result.score}`);
+    // Get the JSON webhook payload for the event that triggered the workflow
+    const payload = JSON.stringify(github.context.payload, undefined, 2);
+    console.log(`The event payload: ${payload}`);
   } catch (error) {
-    console.log(error);
+    core.setFailed(error.message);
   }
-  // Logs for fun 🎉
-  console.log(`Analysis: ${result.score}`);
-  // Get the JSON webhook payload for the event that triggered the workflow
-  const payload = JSON.stringify(github.context.payload, undefined, 2);
-  console.log(`The event payload: ${payload}`);
-} catch (error) {
-  core.setFailed(error.message);
 }
+
+run();
 
 
 /***/ }),
