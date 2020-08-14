@@ -5952,7 +5952,7 @@ const Sentiment = __webpack_require__(936);
 try {
   const githubToken = core.getInput("GITHUB_TOKEN");
   const pullRequestNumber = github.context.payload.pull_request.number;
-  const octokit = new github.GitHub(githubToken);
+  const octokit = new github.getOctokit(githubToken);
   // Analyze the mood of the Pull Request's body
   let mood = new Sentiment();
   let result = mood.analyze(github.context.payload.pull_request.body);
