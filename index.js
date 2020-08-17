@@ -12,8 +12,10 @@ async function run() {
     let result = mood.analyze(github.context.payload.pull_request.body);
     const message = `MESSAGE GOES HERE! 🎉`;
     try {
-      console.log(github.context.payload.repository.name);
-      console.log(github.context.payload.repository.owner);
+      console.log("name: ", github.context.payload.repository.name);
+      console.log("owner: ", github.context.payload.repository.owner);
+      console.log("PR #:", pullRequestNumber);
+      console.log("Message: ", message);
       octokit.issues.createComment({
         repo: github.context.payload.repository.name,
         owner: github.context.payload.repository.owner,
