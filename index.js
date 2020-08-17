@@ -23,7 +23,7 @@ async function run() {
         body: message,
       });
     } catch (error) {
-      console.log(error);
+      console.log("ERROR: ", error);
     }
     // Logs for fun 🎉
     console.log(`Analysis: ${result.score}`);
