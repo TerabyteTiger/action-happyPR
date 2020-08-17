@@ -5965,7 +5965,7 @@ async function run() {
       console.log("Message: ", message);
       octokit.issues.createComment({
         repo: github.context.payload.repository.name,
-        owner: github.context.payload.repository.owner,
+        owner: github.context.payload.repository.owner.login,
         issue_number: pullRequestNumber,
         body: message,
       });
