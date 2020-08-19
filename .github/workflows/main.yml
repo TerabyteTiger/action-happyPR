@@ -7,12 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     name: Analyze mood of PR
     steps:
-      # To use this repository's private action,
-      # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
       - name: Mood Analysis Step
-        uses: ./ # Uses an action in the root directory
+        uses: TerabyteTiger/action-happyPR@v2
         id: happy
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
