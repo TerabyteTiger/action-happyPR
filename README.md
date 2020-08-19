@@ -19,7 +19,8 @@ An example of a response to a somewhat positive Pull Request response:
 ## Example usage
 
 ```yaml
-uses: actions/hello-world-javascript-action@v1
-with:
-  who-to-greet: "Mona the Octocat"
+uses: TerabyteTiger/action-happyPR@v2
+  id: happy
+  with:
+    GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
