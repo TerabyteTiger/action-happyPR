@@ -83,7 +83,7 @@ async function run() {
     // Analyze the mood of the Pull Request's body
     let mood = new Sentiment();
     let result = mood.analyze(github.context.payload.pull_request.body);
-    let resultIndex = Math.round(result + 5); // index of gif to look up
+    let resultIndex = Math.round(result.comparative + 5); // index of gif to look up
     console.log(result);
     console.log(resultIndex);
     let altText = allGifs[resultIndex].alt;
