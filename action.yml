@@ -1,9 +1,8 @@
-name: "Hello World"
+name: "Mood Analyze"
 description: "Greet someone and record the time"
-inputs:
-
 outputs:
-
+  time: # id of output
+    description: "The time we greeted you"
 runs:
   using: "node12"
   main: "dist/index.js"

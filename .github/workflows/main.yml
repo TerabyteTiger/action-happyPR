@@ -1,17 +1,18 @@
-on: [pull_request]
+on:
+  pull_request:
+    types: [opened]
 
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
-    name: A job to say hello
+    name: Analyze mood of PR
     steps:
       # To use this repository's private action,
       # you must check out the repository
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Hello world action step
+      - name: Mood Analysis Step
         uses: ./ # Uses an action in the root directory
-        id: hello
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
+        id: happy
+        with:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
