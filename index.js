@@ -89,7 +89,7 @@ async function run() {
     let altText = allGifs[resultIndex].alt;
     let gif = allGifs[resultIndex].link;
     const message = `You're Pull Request scored ${result.comparative} out of a possible +5. Here's a gif representation of your PR:
-    ![${altText}]("${gif}")`;
+    ![${altText}](${gif})`;
     try {
       octokit.issues.createComment({
         repo: github.context.payload.repository.name,
