@@ -22,4 +22,4 @@ with:
   who-to-greet: "Mona the Octocat"
 ```
 
-!["test"](./gifs/0.gif)
+!["test"]("./gifs/0.gif")
