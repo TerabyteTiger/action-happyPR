@@ -6032,7 +6032,6 @@ async function run() {
     let result = mood.analyze(github.context.payload.pull_request.body);
     let resultIndex = Math.round(result.comparative + 5); // index of gif to look up
     console.log(result);
-    console.log(resultIndex);
     let altText = allGifs[resultIndex].alt;
     let gif = allGifs[resultIndex].link;
     const message = `You're Pull Request scored ${result.comparative} out of a possible +5. Here's a gif representation of your PR:
