@@ -5954,68 +5954,68 @@ const Sentiment = __webpack_require__(936);
 const allGifs = [
   {
     // Link to gif
-    link: "~/gifs/mad/5.gif",
+    link: "../gifs/mad/5.gif",
     // Alt text for gif
     alt: "Anger from Inside Out yellling and lighting his head on fire",
   },
   {
     // Link to gif
-    link: "~/gifs/mad/4.gif",
+    link: "../gifs/mad/4.gif",
     // Alt text for gif
     alt: "Nick Miller from New Girl bashing his face into a pillow repeatedly",
   },
   {
     // Link to gif
-    link: "~/gifs/mad/3.gif",
+    link: "../gifs/mad/3.gif",
     // Alt text for gif
     alt: "Man angrily chewing and glaring from inside his car",
   },
   {
     // Link to gif
-    link: "~/gifs/mad/2.gif",
+    link: "../gifs/mad/2.gif",
     // Alt text for gif
     alt:
       "Nick Miller from New Girl singing 'It's miserable and magical. Oh yeah'",
   },
   {
     // Link to gif
-    link: "~/gifs/mad/1.gif",
+    link: "../gifs/mad/1.gif",
     // Alt text for gif
     alt: "The Grinch saying 'Fine' with a slightly disappointed look",
   },
   {
     // Link to gif
-    link: "~/gifs/0.gif",
+    link: "../gifs/0.gif",
     // Alt text for gif
     alt: "Boo from Monsters Inc blinking and looking into space neutrally",
   },
   {
     // Link to gif
-    link: "~/gifs/happy/1.gif",
+    link: "../gifs/happy/1.gif",
     // Alt text for gif
     alt: "Sonic the Hedgehog dancing and twirling",
   },
   {
     // Link to gif
-    link: "~/gifs/happy/2.gif",
+    link: "../gifs/happy/2.gif",
     // Alt text for gif
     alt: "Pig holding a pinwheel while out the window excitedly",
   },
   {
     // Link to gif
-    link: "~/gifs/happy/3.gif",
+    link: "../gifs/happy/3.gif",
     // Alt text for gif
     alt: "Minions cheering and clapping",
   },
   {
     // Link to gif
-    link: "~/gifs/happy/4.gif",
+    link: "../gifs/happy/4.gif",
     // Alt text for gif
     alt: "Anna from Frozen being overjoyed",
   },
   {
     // Link to gif
-    link: "~/gifs/happy/5.gif",
+    link: "../gifs/happy/5.gif",
     // Alt text for gif
     alt:
       "Fairly  Odd Parents shaking maracas while confetti falls from the ceiling",
@@ -6035,11 +6035,8 @@ async function run() {
     console.log(resultIndex);
     let altText = allGifs[resultIndex].alt;
     let gif = allGifs[resultIndex].link;
-    const message = `You're Pull Request scored ${result} out of a possible +5. 
-    
-    We estimate your mood was roughly:
-    ![${altText}](${gif})
-    `;
+    const message = `You're Pull Request scored ${result.comparative} out of a possible +5. Here's a gif representation of your PR:
+    ![${altText}](${gif})`;
     try {
       octokit.issues.createComment({
         repo: github.context.payload.repository.name,
