@@ -1,6 +1,8 @@
 name: "Mood Analyze"
 description: "Respond to new PR's with a gif representing the sentiment"
-icon: at-sign
+branding: 
+  icon: 'at-sign'
+  color: '#fff365'
 inputs:
   GITHUB_TOKEN:
     required: true
