@@ -1,8 +1,8 @@
 name: "Mood Analyze"
-description: "Greet someone and record the time"
-outputs:
-  time: # id of output
-    description: "The time we greeted you"
+description: "Respond to new PR's with a gif representing the sentiment"
+inputs:
+  GITHUB_TOKEN:
+    required: true
 runs:
   using: "node12"
   main: "dist/index.js"

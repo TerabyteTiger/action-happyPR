@@ -14,5 +14,5 @@ jobs:
       - name: Mood Analysis Step
         uses: ./ # Uses an action in the root directory
         id: happy
-        with:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        # with:
+        #   GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
