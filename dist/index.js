@@ -6021,7 +6021,6 @@ const allGifs = [
       "Fairly  Odd Parents shaking maracas while confetti falls from the ceiling",
   },
 ];
-
 async function run() {
   try {
     const githubToken = core.getInput("GITHUB_TOKEN");
@@ -6035,7 +6034,7 @@ async function run() {
     let altText = allGifs[resultIndex].alt;
     let gif = allGifs[resultIndex].link;
     const message = `You're Pull Request scored ${result.comparative} out of a possible +5. Here's a gif representation of your PR:
-    ![${altText}](${gif})`;
+    ![${altText}](https://github.com/TerabyteTiger/action-happyPR/blob/master/${gif}?raw=true)`;
     try {
       octokit.issues.createComment({
         repo: github.context.payload.repository.name,
