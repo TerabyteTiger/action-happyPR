@@ -23,7 +23,7 @@ on:
   pull_request:
     types: [opened]
     
-uses: TerabyteTiger/action-happyPR@v2
+uses: TerabyteTiger/action-happyPR@v3
   id: happy
   with:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
