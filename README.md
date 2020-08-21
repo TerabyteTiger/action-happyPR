@@ -19,6 +19,10 @@ An example of a response to a somewhat positive Pull Request response:
 ## Example usage
 
 ```yaml
+on:
+  pull_request:
+    types: [opened]
+    
 uses: TerabyteTiger/action-happyPR@v2
   id: happy
   with:
