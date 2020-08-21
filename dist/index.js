@@ -6004,6 +6004,7 @@ const allGifs = [
 async function run() {
   try {
     // Only run on pull_request actions that include the action phrase 'open' //
+    console.log("eventName: ", github.context.eventName);
     if (github.context.eventName === "pull_request") {
       const githubToken = core.getInput("GITHUB_TOKEN");
       const pullRequestNumber = github.context.payload.pull_request.number;
