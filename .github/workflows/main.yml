@@ -10,7 +10,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Mood Analysis Step
-        uses: TerabyteTiger/action-happyPR@v2
+        uses: ./ #uses local latest version for testing purposes
         id: happy
         with:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
