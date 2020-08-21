@@ -1,4 +1,4 @@
-name: "Mood Analyze"
+name: "Happy-PR"
 description: "Respond to new PR's with a gif representing the sentiment"
 branding: 
   icon: 'at-sign'
