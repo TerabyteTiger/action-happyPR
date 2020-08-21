@@ -56,8 +56,7 @@ const allGifs = [
 ];
 async function run() {
   try {
-    console.log("github.event_name: ", github.event_name);
-    console.log("github.event: ", github.event);
+    console.log("Context: ", github.context);
     const githubToken = core.getInput("GITHUB_TOKEN");
     const pullRequestNumber = github.context.payload.pull_request.number;
     const octokit = new github.getOctokit(githubToken);
