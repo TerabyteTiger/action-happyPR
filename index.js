@@ -56,31 +56,36 @@ const allGifs = [
 ];
 async function run() {
   try {
-    console.log("Context: ", github.context);
-    const githubToken = core.getInput("GITHUB_TOKEN");
-    const pullRequestNumber = github.context.payload.pull_request.number;
-    const octokit = new github.getOctokit(githubToken);
-    // Analyze the mood of the Pull Request's body
-    let mood = new Sentiment();
-    let result = mood.analyze(github.context.payload.pull_request.body);
-    let resultIndex = Math.round(result.comparative + 5); // index of gif to look up
-    console.log(result);
-    let altText = allGifs[resultIndex].alt;
-    let gif = allGifs[resultIndex].link;
-    const message = `You're Pull Request scored a ${result.comparative} out of a possible +5 on the [sentiment scale](https://www.npmjs.com/package/sentiment). Here's a gif representation of your PR:
-    ![${altText}](${gif})`;
-    try {
-      octokit.issues.createComment({
-        repo: github.context.payload.repository.name,
-        owner: github.context.payload.repository.owner.login,
-        issue_number: pullRequestNumber,
-        body: message,
-      });
-    } catch (error) {
-      console.log("ERROR: ", error);
+    if (github.context.eventName === "pull_request") {
+      const githubToken = core.getInput("GITHUB_TOKEN");
+      const pullRequestNumber = github.context.payload.pull_request.number;
+      const octokit = new github.getOctokit(githubToken);
+      // Analyze the mood of the Pull Request's body
+      let mood = new Sentiment();
+      let result = mood.analyze(github.context.payload.pull_request.body);
+      let resultIndex = Math.round(result.comparative + 5); // index of gif to look up
+      console.log(result);
+      let altText = allGifs[resultIndex].alt;
+      let gif = allGifs[resultIndex].link;
+      const message = `You're Pull Request scored a ${result.comparative} out of a possible +5 on the [sentiment scale](https://www.npmjs.com/package/sentiment). Here's a gif representation of your PR:
+      ![${altText}](${gif})`;
+      try {
+        octokit.issues.createComment({
+          repo: github.context.payload.repository.name,
+          owner: github.context.payload.repository.owner.login,
+          issue_number: pullRequestNumber,
+          body: message,
+        });
+      } catch (error) {
+        console.log("ERROR: ", error);
+      }
+      // Get the JSON webhook payload for the event that triggered the workflow
+      const payload = JSON.stringify(github.context.payload, undefined, 2);
+    } else {
+      console.log(
+        "This action was triggered on a non-pull_request event. Have some pizza 🍕🍕"
+      );
     }
-    // Get the JSON webhook payload for the event that triggered the workflow
-    const payload = JSON.stringify(github.context.payload, undefined, 2);
   } catch (error) {
     core.setFailed(error.message);
   }
