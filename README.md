@@ -28,3 +28,5 @@ uses: TerabyteTiger/action-happyPR@v2
   with:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
+
+This is for triggering the action and testing purposes  
