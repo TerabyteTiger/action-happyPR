@@ -28,3 +28,5 @@ uses: TerabyteTiger/action-happyPR@v3
   with:
     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
+
+These changes are to trigger a PR and should not be merged. 
